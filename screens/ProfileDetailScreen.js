@@ -1,10 +1,17 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, Button, StyleSheet } from 'react-native';
 
 const ProfileDetailScreen = props => {
     return (
         <View style={styles.screen}>
             <Text>The Profile Detail Screen!</Text>
+            <Button title="Go to Sniff!" onPress={() => {
+                props.navigation.navigate('Sniff');
+            }} />
+
+            <Button title="Go Back" onPress={() => {
+                props.navigation.goBack();
+            }} />
         </View>
     );
 };
