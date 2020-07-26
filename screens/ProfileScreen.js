@@ -5,11 +5,11 @@ import {
   FlatList,
   TouchableOpacity,
   StyleSheet,
-  Platform
+  Platform,
 } from "react-native";
 
 import { PROFILES } from "../data/dummy-data/";
-import Colors from '../constants/Colors';
+import Colors from "../constants/Colors";
 
 const ProfileScreen = (props) => {
   const renderGridItem = (itemData) => {
@@ -17,7 +17,12 @@ const ProfileScreen = (props) => {
       <TouchableOpacity
         style={styles.gridItem}
         onPress={() => {
-          props.navigation.navigate({ routeName: "ProfileDetails" });
+          props.navigation.navigate({
+            routeName: "ProfileDetails",
+            params: {
+              profileId: itemData.item.id,
+            },
+          });
         }}
       >
         <View style={styles.gridItem}>
@@ -38,12 +43,12 @@ const ProfileScreen = (props) => {
 };
 
 ProfileScreen.navigationOptions = {
-    headerTitle: 'Client Profiles',
-    headerStyle: {
-        backgroundColor: Platform.OS === 'android' ? Colors.primaryColor: 'white'
-    },
-    headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primaryColor
-}
+  headerTitle: "Client Profiles",
+  headerStyle: {
+    backgroundColor: Platform.OS === "android" ? Colors.primaryColor : "white",
+  },
+  headerTintColor: Platform.OS === "android" ? "white" : Colors.primaryColor,
+};
 
 const styles = StyleSheet.create({
   screen: {
