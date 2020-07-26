@@ -3,8 +3,11 @@ import React, { useState } from "react";
 import {  Text, View, StyleSheet, } from "react-native";
 import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
+import { useScreens } from 'react-native-screens';
 
 import PowNavigator from './navigation/PowNavigator';
+
+useScreens();
 
 const fetchFonts = () =>  {
   Font.loadAsync({
